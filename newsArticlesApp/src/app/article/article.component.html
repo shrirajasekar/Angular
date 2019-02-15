@@ -1,7 +1,10 @@
-<p>
-  Article {{articleId}}
-  <button (click)="goBack()">Home</button>
-</p>
-
+<!-- <p align="center">
+    <button (click)="goBack()"><</button>
+    Article {{articleId}}
+    <button (click)="goBack()">></button>
+</p> -->
+<button (click)="goToArticleLeft()">Left</button>
+<button (click)="goToArticleRight()">Right</button>
+<button (click)="goBack()">Home</button>
 
 <div [innerHtml]="holder"></div>

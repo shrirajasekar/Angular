@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+  private readonly articleURL = "article";
   holder: SafeHtml;
   public articleId:string='0';
   public divContent:string="";
@@ -30,11 +31,40 @@ export class ArticleComponent implements OnInit {
     this.router.navigateByUrl('/news');
   }
 
+  private goToArticle(number){
+    console.log("called")
+    let navToArticleurl = `${this.articleURL}/${number}`;
+    this.router.navigateByUrl(navToArticleurl)
+  }
+
+  private goToArticleLeft(){
+    console.log("calledLeft")
+    if(this.articleId=="1"){
+      return
+    }else{
+      this.articleId = (parseInt(this.articleId)-1).toString();
+      this.buildDivContent(this.articleId);
+    }
+    
+  }
+
+  private goToArticleRight(){
+    console.log("calledLeft")
+    if(this.articleId=="5"){
+      return
+    }else{
+      this.articleId = (parseInt(this.articleId)+1).toString();
+      this.buildDivContent(this.articleId);
+    }
+    
+  }
+
   private buildDivContent(articleId:string){
     this.parseJSON(this.articleId).subscribe(response=>{
     let body = response.body;
     if(body && body.length >0){
       this.divContent = "";
+     // this.divContent = "<button (click)= 'goBack()'> Left </button>"
       for(let elem of body){
         switch(elem.type){
           case "paragraph":           

@@ -6,17 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewsboardComponent } from './newsboard/newsboard.component';
 import { ArticleComponent } from './article/article.component';
+import { RankerComponent } from './ranker/ranker.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsboardComponent,
-    ArticleComponent
+    ArticleComponent,
+    RankerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule    
+    AppRoutingModule,
+    FormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

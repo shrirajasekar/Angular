@@ -8,14 +8,20 @@ import { Router } from "@angular/router";
 })
 export class NewsboardComponent implements OnInit {
 
-  private readonly articleURL = "article"
+  private readonly articleURL = "article";
   constructor(private router: Router) { }
 
   ngOnInit() {}
 
   private goToNews(value:string){
-    let myurl = `${this.articleURL}/${value}`;
-    this.router.navigateByUrl(myurl)
+    let urlToArticle = `${this.articleURL}/${value}`;
+    this.router.navigateByUrl(urlToArticle);
   }
+
+  private goToRanker(){
+    this.router.navigateByUrl("/rank");
+  }
+
+  
 
 }
