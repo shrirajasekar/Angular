@@ -68,7 +68,6 @@ export class ArticleComponent implements OnInit {
     let body = response.body;
     if(body && body.length >0){
       this.divContent = "";
-     // this.divContent = "<button (click)= 'goBack()'> Left </button>"
       for(let elem of body){
         switch(elem.type){
           case "paragraph":           
