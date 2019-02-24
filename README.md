@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. Download the application source code from git
 2. Open command prompt / terminal and navigate to newsArticlesApp folder
 3. Install necessary node_modules to run the application by running `npm install` command in the terminal
-4. Start the UI server using `ng serve` command
+4. Start the UI server using `ng serve` command. This should start the angular app in localhost:4200
 5. Now, start the express server by following the below steps
 6. Open a new terminal / command prompt and navigate to newsArticlesApp/server folder and run `npm start` command. 
    It should start the server in port 4500
