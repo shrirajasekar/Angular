@@ -40,9 +40,8 @@ export class ArticleComponent implements OnInit {
   }
 
   private goToArticleLeft(){
-    console.log("calledLeft")
     if(this.articleId=="1"){
-      this.router.navigateByUrl('/rank');
+      this.router.navigateByUrl('/news');
     }else{
       this.articleId = (parseInt(this.articleId)-1).toString();
       let navToArticleurl = `${this.articleURL}/${this.articleId}`;
@@ -52,7 +51,6 @@ export class ArticleComponent implements OnInit {
   }
 
   private goToArticleRight(){
-    console.log("calledLeft")
     if(this.articleId=="5"){
       this.router.navigateByUrl('/rank');
     }else{

@@ -111,8 +111,6 @@ export class RankerComponent implements OnInit {
     if (e.charCode>53 || e.charCode<49) {
         event.preventDefault();
       }
-    
-    console.log(this.rank)
     var valid = 0;
 }
 
