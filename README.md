@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for UI server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Requirements:
+Requirements: 
 *node_modules
 *bootsrap
 *jQuery
@@ -14,7 +14,9 @@ Requirements:
 ## Express server serving in port 4500 (for GET and POST)
 
 Navigate to server folder and run `npm start` for express server. The app handles get and post requests via `http://localhost:4500/getRank`
-`http://localhost:4500/setRank` respectively. 
+`http://localhost:4500/setRank` respectively.
+
+
 Requirements:
 *node.js
 *Express 
