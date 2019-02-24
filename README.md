@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
+## Steps to run the application
+1. Download the application source code from git
+2. Open command prompt / terminal and navigate to newsArticlesApp folder
+3. Install necessary node_modules to run the application by running `npm install` command in the terminal
+4. Start the UI server using `ng serve` command
+5. Now, start the express server by following the below steps
+6. Open a new terminal / command prompt and navigate to newsArticlesApp/server folder and run `npm start` command. 
+   It should start the server in port 4500
+7. The ranks will be saved in newsArticlesApp/src/assets/ranks.json
+8. The articles data is pulled from newsArticlesApp/src/assets/ and a dynamic HTML is created
+
 ## UI server
 
 Run `ng serve` for UI server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
