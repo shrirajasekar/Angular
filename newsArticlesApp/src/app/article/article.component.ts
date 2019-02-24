@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { DomSanitizer,SafeHtml } from "@angular/platform-browser";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
+import { container } from '@angular/core/src/render3';
 
 
 @Component({
@@ -25,14 +26,15 @@ export class ArticleComponent implements OnInit {
     })
   }
 
-  
+  private goToRanker(){
+    this.router.navigateByUrl("/rank");
+  }  
 
   private goBack(){
     this.router.navigateByUrl('/news');
   }
 
   private goToArticle(number){
-    console.log("called")
     let navToArticleurl = `${this.articleURL}/${number}`;
     this.router.navigateByUrl(navToArticleurl)
   }
@@ -40,10 +42,11 @@ export class ArticleComponent implements OnInit {
   private goToArticleLeft(){
     console.log("calledLeft")
     if(this.articleId=="1"){
-      return
+      this.router.navigateByUrl('/rank');
     }else{
       this.articleId = (parseInt(this.articleId)-1).toString();
-      this.buildDivContent(this.articleId);
+      let navToArticleurl = `${this.articleURL}/${this.articleId}`;
+      this.router.navigateByUrl(navToArticleurl)
     }
     
   }
@@ -51,10 +54,11 @@ export class ArticleComponent implements OnInit {
   private goToArticleRight(){
     console.log("calledLeft")
     if(this.articleId=="5"){
-      return
+      this.router.navigateByUrl('/rank');
     }else{
       this.articleId = (parseInt(this.articleId)+1).toString();
-      this.buildDivContent(this.articleId);
+      let navToArticleurl = `${this.articleURL}/${this.articleId}`;
+      this.router.navigateByUrl(navToArticleurl)
     }
     
   }
@@ -102,11 +106,11 @@ export class ArticleComponent implements OnInit {
   }
 
   private constructParagraph(content:string){
-    return "<p>"+content+"</p>";
+    return "<div class = \"row\"><article>"+content+"</article></div><br/>";
   }
 
   private constructHeading(content:string){
-    return "<h1>"+content+"</h1>";
+    return "<div class = \"row\"><h1>"+content+"</h1></div><br/>";
   }
 
   private constructList(content:any){
@@ -122,12 +126,12 @@ export class ArticleComponent implements OnInit {
     for(let e of content.items){
       listContent = listContent+ "<li>" + e + "</li>";
     }
-    listContent = listContent + listEnd;
+    listContent = listContent + listEnd + "<br/>";
     return listContent;
   }
 
   private constructImage(content:any){
-    return "<img src = "+content.url+" width = "+content.width+" height = "+content.height+ " alt = '"+ content.altText +"' >";
+    return "<div class = \"row\"><img src = "+content.url+" class='rounded img-fluid float-center' width = "+content.width+" height = "+content.height+ " alt = '"+ content.altText +"' ></div><br/>";
   }
 
 }

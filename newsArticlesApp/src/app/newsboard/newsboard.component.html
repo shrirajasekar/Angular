@@ -1,5 +1,9 @@
+<!-- <html>
+<div class="jumbotron text-center">
+  <h1>Newsboard</h1>
+</div>
+
 <p>
-  News Board
   <button (click)="goToNews(1)">News 1</button>
   <button (click)="goToNews(2)">News 2</button>
   <button (click)="goToNews(3)">News 3</button>
@@ -7,3 +11,72 @@
   <button (click)="goToNews(5)">News 5</button>
   <button (click)="goToRanker()">Rank the Articles</button>
 </p>
+</html> -->
+<html>
+    
+<div class="container" >
+  <h1 class="my-5">News Board  <button class="btn btn-primary btn-lg" align = "center" style="cursor: pointer;float: right;" (click)="goToRanker()">Rank Articles</button></h1> 
+  <div class="row">
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" style="cursor: pointer;" (click)="goToNews(1)"  src="https://picsum.photos/640/420/?random" alt="Article One">
+        <div class="card-body">
+          <h4 class="card-title">
+            <p style="cursor: pointer;" (click)="goToNews(1)">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          </h4>
+          <p class="card-text">Etiam ornare nulla in sem pharetra, vel varius magna tempus. Praesent pulvinar eget dolor vitae elementum. Donec id velit at sem gravida tristique non vitae lorem.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" style="cursor: pointer;" (click)="goToNews(2)" src="https://picsum.photos/640/420/?random" alt="Article Two">
+        <div class="card-body">
+          <h4 class="card-title">
+              <p style="cursor: pointer;" (click)="goToNews(2)">Nam eu varius magna, vel molestie diam</p>
+          </h4>
+          <p class="card-text">Integer lobortis, magna et tempor facilisis, arcu dui finibus mauris, pellentesque fringilla massa sem non justo. Phasellus vel arcu eu eros commodo egestas at non dui. Ut ultricies quis nunc ut commodo</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" style="cursor: pointer;" (click)="goToNews(3)" src="https://picsum.photos/640/420/?random" alt="Article Three">
+        <div class="card-body">
+          <h4 class="card-title">
+            <p style="cursor: pointer;" (click)="goToNews(3)">Donec est neque, vulputate vitae magna non, aliquam semper lectus</p>
+          </h4>
+          <p class="card-text">Nam sed tempus lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam sodales efficitur fermentum. Phasellus lacinia tempus odio, non mattis tellus pretium ac. Nulla facilisi. Donec tempor orci ipsum, eu euismod massa aliquet in. Fusce pretium lectus vitae dui pulvinar, vel fermentum elit porta.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" style="cursor: pointer;" (click)="goToNews(4)" src="https://picsum.photos/640/420/?random" alt="Article Four">
+        <div class="card-body">
+          <h4 class="card-title">
+            <p style="cursor: pointer;" (click)="goToNews(4)">Maecenas venenatis lorem ut erat dictum, sed varius est porta</p>
+          </h4>
+          <p class="card-text">Donec et fermentum elit, in aliquet massa. Suspendisse mollis tristique vulputate. Ut congue, quam quis volutpat egestas, nisl sem tempus urna, quis consequat arcu leo vitae turpis.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" style="cursor: pointer;" (click)="goToNews(5)" src="https://picsum.photos/640/420/?random" alt="Article Five">
+        <div class="card-body">
+          <h4 class="card-title">
+            <p style="cursor: pointer;" (click)="goToNews(5)">Nulla nibh erat, pharetra at ultricies nec, tincidunt luctus arcu</p>
+          </h4>
+          <p class="card-text">Suspendisse id erat a nibh rutrum consectetur. Ut porttitor arcu id nibh pellentesque, et laoreet sapien accumsan. Phasellus quis finibus ipsum. Cras malesuada eu arcu sed laoreet. Nulla egestas ac eros vel eleifend. Nam porta ornare nisl, quis gravida dolor sagittis a.</p>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+</html>

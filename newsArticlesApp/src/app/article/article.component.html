@@ -3,8 +3,79 @@
     Article {{articleId}}
     <button (click)="goBack()">></button>
 </p> -->
-<button (click)="goToArticleLeft()">Left</button>
-<button (click)="goToArticleRight()">Right</button>
-<button (click)="goBack()">Home</button>
+<html>
+        <style>
+                .content {
+                  max-width: 50%;
+                  margin: 5% 30%;
+                }
+        </style>
+                <style>
+                        .heading {
+                          max-width: 50%;
+                          margin: 2% 29% -4%;
+                        }
+                            .center {
+                                text-align: center;
+                                }
 
-<div [innerHtml]="holder"></div>
+                                .pagination {
+                                display: inline-block;
+                                }
+
+                                .pagination a {
+                                color: black;
+                                float: left;
+                                padding: 8px 16px;
+                                text-decoration: none;
+                                transition: background-color .3s;
+                                border: 1px solid #ddd;
+                                margin: 0 4px;
+                                }
+
+                                .pagination a.active {
+                                background-color: #4CAF50;
+                                color: white;
+                                border: 1px solid #4CAF50;
+                                }
+
+                                .pagination a:hover:not(.active) {background-color: #ddd;}
+                </style>
+<body>
+        <div class="center" style="margin: 5% 0% 5%;">
+                <div class="pagination">
+                    <a style="cursor: pointer;" (click)="goBack()">Home</a>
+                    <a style="cursor: pointer;" (click)="goToArticleLeft()">&laquo;</a>
+                    <a style="cursor: pointer;" (click)="goToArticle(1)">1</a>
+                    <a style="cursor: pointer;" (click)="goToArticle(2)">2</a>
+                    <a style="cursor: pointer;" (click)="goToArticle(3)">3</a>
+                    <a style="cursor: pointer;" (click)="goToArticle(4)">4</a>
+                    <a style="cursor: pointer;" (click)="goToArticle(5)">5</a>                    
+                    <a style="cursor: pointer;" (click)="goToArticleRight()">&raquo;</a>
+                    <a style="cursor: pointer;" (click)="goToRanker()">Rank</a>
+                </div>
+</div>
+
+        
+
+<div class="content" [innerHtml]="holder"></div>
+
+
+
+<div class="center" style="margin: 5% 0% 5%;">
+        <div class="pagination">
+            <a style="cursor: pointer;" (click)="goBack()">Home</a>
+            <a style="cursor: pointer;" (click)="goToArticleLeft()">&laquo;</a>
+            <a style="cursor: pointer;" (click)="goToArticle(1)">1</a>
+            <a style="cursor: pointer;" (click)="goToArticle(2)">2</a>
+            <a style="cursor: pointer;" (click)="goToArticle(3)">3</a>
+            <a style="cursor: pointer;" (click)="goToArticle(4)">4</a>
+            <a style="cursor: pointer;" (click)="goToArticle(5)">5</a>                    
+            <a style="cursor: pointer;" (click)="goToArticleRight()">&raquo;</a>
+            <a style="cursor: pointer;" (click)="goToRanker()">Rank</a>
+        </div>
+</div>
+
+</body>
+
+</html>
