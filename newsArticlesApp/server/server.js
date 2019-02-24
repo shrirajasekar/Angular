@@ -11,7 +11,6 @@ app.use(function(req, res, next) {
 });
 
 var fs = require('fs');
-// get all todos
 
 app.get('/getRank', (req, res, next) => {
     console.log("GetRank Called");
@@ -44,7 +43,6 @@ app.post('/setRank', (req, res) => {
     var data = "{ \n \"article1\": \""+req.body.article1+"\" , \n \"article2\": \""+req.body.article2+"\" , \n \"article3\": \""+req.body.article3+"\" , \n \"article4\": \""+req.body.article4+"\" , \n \"article5\": \""+req.body.article5+"\"  \n }";
     fs.writeFile('../src/assets/ranks.json', data, function(err){
         if (err) console.log(err);
-        console.log(req.body.article5);
     });
   
    return res.status(201).send({

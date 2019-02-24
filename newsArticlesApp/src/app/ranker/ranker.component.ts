@@ -3,6 +3,11 @@ import {RankClass} from '../model/rank.model';
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ifError } from 'assert';
+import { error } from '@angular/compiler/src/util';
+import { isError } from 'util';
+import { Router } from "@angular/router";
+import { delay } from 'q';
 
 @Component({
   selector: 'app-ranker',
@@ -18,7 +23,7 @@ export class RankerComponent implements OnInit {
       'Content-Type':  'application/json'
     })
   };
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private router: Router) { 
     this.rank=new RankClass();
     this.errorMessage = "All fields are required!";
     this.errorFlag = false;
@@ -29,16 +34,30 @@ export class RankerComponent implements OnInit {
   }
 
   public submitRanks(){
-    //this.http.post("http://161.23.48.120:4500/setRank", this.rank, this.httpOptions).subscribe(response=>{console.log(response)})
-    this.http.post("http://localhost:4500/setRank", this.rank, this.httpOptions).subscribe(response=>{console.log(response)})
-    alert("Ranks saved successfully!")
+     this.http.post("http://localhost:4500/setRank", this.rank, this.httpOptions).subscribe(response=>{alert("Ranks saved successfully!")},error=>{alert("Error : Couldn't save changes!")})
+     this.router.navigateByUrl('/news'); 
   }
 
-  // public getRanks(){
-  //   //this.http.post("http://161.23.48.120:4500/setRank", this.rank, this.httpOptions).subscribe(response=>{console.log(response)})
-  //   this.http.post("http://localhost:4500/getRank", this.httpOptions).subscribe(response=>{console.log(response)})
-  //   console.log(this.rank);
-  // }
+  public clearAll(){
+    this.rank.article1=null;
+    this.rank.article2=null;
+    this.rank.article3=null;
+    this.rank.article4=null;
+    this.rank.article5=null;
+    this.errorFlag=true;
+ }
+
+ public clearAllAndSave(){
+  this.rank.article1=null;
+  this.rank.article2=null;
+  this.rank.article3=null;
+  this.rank.article4=null;
+  this.rank.article5=null;
+  this.errorFlag=true;
+  this.http.post("http://localhost:4500/setRank", this.rank, this.httpOptions).subscribe(response=>{alert("Ranks cleared successfully!")},error=>{alert("Error : Couldn't save changes!")})
+}
+
+
 
   private parseJSON():Observable<any>{
     return new Observable(observe=>{this.http.get('/assets/ranks.json')
@@ -50,8 +69,12 @@ export class RankerComponent implements OnInit {
 
   private loadFormData(){
     this.parseJSON().subscribe(response=>{
-      console.log(response);
       this.rank = <RankClass> response;
+      this.rank.article1 = this.rank.article1 == "null"?"":this.rank.article1;
+      this.rank.article2 = this.rank.article2 == "null"?"":this.rank.article2;
+      this.rank.article3 = this.rank.article3 == "null"?"":this.rank.article3;
+      this.rank.article4 = this.rank.article4 == "null"?"":this.rank.article4;
+      this.rank.article5 = this.rank.article5 == "null"?"":this.rank.article5;
     })
   }
   onKeyUp(e: any) {
@@ -62,15 +85,19 @@ export class RankerComponent implements OnInit {
     }if (parseInt(this.rank.article2)> 5 || parseInt(this.rank.article2) == parseInt(this.rank.article1) || parseInt(this.rank.article2) == parseInt(this.rank.article3) || parseInt(this.rank.article2) == parseInt(this.rank.article4) || parseInt(this.rank.article2) == parseInt(this.rank.article5)){
       this.rank.article2=null;
       alert("Article 2 - Invalid or already used rank");
+      this.errorFlag=false;
     }if (parseInt(this.rank.article3)> 5 || parseInt(this.rank.article3) == parseInt(this.rank.article1) || parseInt(this.rank.article3) == parseInt(this.rank.article2) || parseInt(this.rank.article3) == parseInt(this.rank.article4) || parseInt(this.rank.article3) == parseInt(this.rank.article5)){
       this.rank.article3=null;
       alert("Article 3 - Invalid or already used rank");
+      this.errorFlag=false;
     }if (parseInt(this.rank.article4)> 5 || parseInt(this.rank.article4) == parseInt(this.rank.article1) || parseInt(this.rank.article4) == parseInt(this.rank.article2) || parseInt(this.rank.article4) == parseInt(this.rank.article3) || parseInt(this.rank.article4) == parseInt(this.rank.article5)){
       this.rank.article4=null;
       alert("Article 4 - Invalid or already used rank");
+      this.errorFlag=false;
     }if (parseInt(this.rank.article5)> 5 || parseInt(this.rank.article5) == parseInt(this.rank.article1) || parseInt(this.rank.article5) == parseInt(this.rank.article2) || parseInt(this.rank.article5) == parseInt(this.rank.article3) || parseInt(this.rank.article5) == parseInt(this.rank.article4)){
       this.rank.article5=null;
       alert("Article 5 - Invalid or already used rank");
+      this.errorFlag=false;
     }if(this.rank.article1 == null||this.rank.article2==null||this.rank.article3==null||this.rank.article4==null||this.rank.article5==null){
       this.errorFlag=true;
     }else{
