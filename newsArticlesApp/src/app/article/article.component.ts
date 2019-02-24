@@ -89,9 +89,6 @@ export class ArticleComponent implements OnInit {
         }
       }
     }
-    console.log(body);
-    console.log("_______________");
-    console.log(this.divContent);
     this.holder = this.sanitizer.bypassSecurityTrustHtml(this.divContent);
   });
     
