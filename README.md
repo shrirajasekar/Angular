@@ -1,14 +1,25 @@
-# MyApp
+# NewsApplication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
-## Development server
+## UI server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for UI server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Requirements:
+*node_modules
+*bootsrap
+*jQuery
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Express server serving in port 4500 (for GET and POST)
+
+Navigate to server folder and run `npm start` for express server. The app handles get and post requests via `http://localhost:4500/getRank`
+`http://localhost:4500/setRank` respectively. 
+Requirements:
+*node.js
+*Express 
+*Babel
+(See package.json for more information)
 
 ## Build
 
